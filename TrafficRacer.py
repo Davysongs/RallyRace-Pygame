@@ -9,7 +9,7 @@ screen_width = 800
 screen_height = 600
 txt_c = (255, 255, 0)
 bckg_c = (0, 0, 0)
-FPS = 60
+FPS = 120
 minimum_size_car = 10
 maximum_size_car = 40
 minimum_speed_car = 8
@@ -77,8 +77,12 @@ w_left = pygame.image.load('image/left_side.png')
 w_right = pygame.image.load('image/right_side.png')
 
 # "welcome" screen
-txt_objects('PRESS ANY KEY TO START THE GAME.', font, screen_display_window, (screen_width / 3) - 30, (screen_height / 3))
-txt_objects('GOOD LUCK AND ENJOY THE RACING', font, screen_display_window, (screen_width / 3), (screen_height / 3) + 30)
+datafile = open("datafiles/save.dat", 'r')
+highest_score = int(datafile.readline())
+datafile.close()
+txt_objects('RALLY RACE', font, screen_display_window, (screen_width / 3) - 30, (screen_height / 3))
+txt_objects('Press any key to begin', font, screen_display_window, (screen_width / 3), (screen_height / 3) + 30)
+txt_objects(f'Score to beat : {highest_score}', font, screen_display_window, (screen_width / 3), (screen_height / 3) + 60)
 pygame.display.update()
 Press_Key_shortcut()
 zero = 0
@@ -86,9 +90,6 @@ if not os.path.exists("datafiles/save.dat"):
     ado = open("datafiles/save.dat", 'w')
     ado.write(str(zero))
     ado.close()
-datafile = open("datafiles/save.dat", 'r')
-highest_scores = int(datafile.readline())
-datafile.close()
 while (counting_seconds > 0):
     # start of the game
     opponent = []
@@ -192,9 +193,9 @@ while (counting_seconds > 0):
         screen_display_window.fill(bckg_c)
 
         # Draw the score and top score.
-        txt_objects('SCORE: %s' % (score), font, screen_display_window, 128, 0)
-        txt_objects('TOP SCORE: %s' % (highest_scores), font, screen_display_window, 128, 20)
-        txt_objects('REST LIFE: %s' % (counting_seconds), font, screen_display_window, 128, 40)
+        txt_objects('Score: %s' % (score), font, screen_display_window, 80, 0)
+        txt_objects('High score: %s' % (highest_score), font, screen_display_window, 220, 0)
+        txt_objects('LIFE: %s' % (counting_seconds), font, screen_display_window, 428, 0)
 
         screen_display_window.blit(player_car_photo, gamer_Rect)
 
@@ -205,11 +206,11 @@ while (counting_seconds > 0):
 
         # Check if any of the car have hit the player.
         if player_crash(gamer_Rect, opponent):
-            if score > highest_scores:
+            if score > highest_score:
                 g = open("datafiles/save.dat", 'w')
                 g.write(str(score))
                 g.close()
-                highest_scores = score
+                highest_score = score
             break
 
         time_clock.tick(FPS)
