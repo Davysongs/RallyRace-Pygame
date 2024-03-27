@@ -58,26 +58,29 @@ pygame.display.set_caption('car race')
 pygame.mouse.set_visible(False)
 
 # fonts
-fontsize = pygame.font.SysFont(None, 30)
+font = pygame.font.SysFont('Arial', 30)
 
 # sounds
 game_over_music = pygame.mixer.Sound('audio_sound/crash.wav')
-pygame.mixer.music.load('audio_sound/car.wav')
-chuckle = pygame.mixer.Sound('audio_sound/chuckle.wav')
+pygame.mixer.music.load('audio_sound/loop.wav')
+chuckle = pygame.mixer.Sound('audio_sound/done.mp3')
 
 # images
-player_car_photo = pygame.image.load('image/computer_car1.png')
-computer_car3 = pygame.image.load('image/computer_car3.png')
-computer_car4 = pygame.image.load('image/computer_car4.png')
+car1 = pygame.image.load('image/car1.png')
+car2 = pygame.image.load('image/car2.png')
+car3 = pygame.image.load('image/car3.png')
+player_car_photo = pygame.image.load('image/car4.png')
+car5 = pygame.image.load('image/car5.png')
+car6 = pygame.image.load('image/car6.png')
+car7 = pygame.image.load('image/car2.png')
+another = [car1, car2, car3, car5, car6, car7]
 gamer_Rect = player_car_photo.get_rect()
-computer_car_photo = pygame.image.load('image/computer_car2.png')
-another = [computer_car3, computer_car4, computer_car_photo]
 w_left = pygame.image.load('image/left_side.png')
 w_right = pygame.image.load('image/right_side.png')
 
 # "welcome" screen
-txt_objects('PRESS ANY KEY TO START THE GAME.', fontsize, screen_display_window, (screen_width / 3) - 30, (screen_height / 3))
-txt_objects('GOOD LUCK AND ENJOY THE RACING', fontsize, screen_display_window, (screen_width / 3), (screen_height / 3) + 30)
+txt_objects('PRESS ANY KEY TO START THE GAME.', font, screen_display_window, (screen_width / 3) - 30, (screen_height / 3))
+txt_objects('GOOD LUCK AND ENJOY THE RACING', font, screen_display_window, (screen_width / 3), (screen_height / 3) + 30)
 pygame.display.update()
 Press_Key_shortcut()
 zero = 0
@@ -191,9 +194,9 @@ while (counting_seconds > 0):
         screen_display_window.fill(bckg_c)
 
         # Draw the score and top score.
-        txt_objects('SCORE: %s' % (score), fontsize, screen_display_window, 128, 0)
-        txt_objects('TOP SCORE: %s' % (highest_scores), fontsize, screen_display_window, 128, 20)
-        txt_objects('REST LIFE: %s' % (counting_seconds), fontsize, screen_display_window, 128, 40)
+        txt_objects('SCORE: %s' % (score), font, screen_display_window, 128, 0)
+        txt_objects('TOP SCORE: %s' % (highest_scores), font, screen_display_window, 128, 20)
+        txt_objects('REST LIFE: %s' % (counting_seconds), font, screen_display_window, 128, 40)
 
         screen_display_window.blit(player_car_photo, gamer_Rect)
 
@@ -220,8 +223,8 @@ while (counting_seconds > 0):
     time.sleep(1)
     if (counting_seconds == 0):
         chuckle.play()
-        txt_objects('GAME OVER', fontsize, screen_display_window, (screen_width / 3), (screen_height / 3))
-        txt_objects('PRESS ANY KEY TO PLAY AGAIN.', fontsize, screen_display_window, (screen_width / 3) - 80, (screen_height / 3) + 30)
+        txt_objects('GAME OVER', font, screen_display_window, (screen_width / 3), (screen_height / 3))
+        txt_objects('Press any key to try again.', font, screen_display_window, (screen_width / 3) - 80, (screen_height / 3) + 30)
         pygame.display.update()
         time.sleep(2)
         Press_Key_shortcut()
