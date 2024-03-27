@@ -2,7 +2,6 @@ import os
 import random
 import sys
 import time
-
 import pygame
 from pygame.locals import *
 
@@ -18,7 +17,6 @@ maximum_speed_car = 8
 new_rate_car_added = 6
 pl_movement_rate = 5
 counting_seconds = 3
-
 
 def Exit():
     pygame.quit()
@@ -164,7 +162,7 @@ while (counting_seconds > 0):
             opponent.append(left_side)
             right_side = {'rect': pygame.Rect(497, 0, 303, 600),
                          'speed': random.randint(minimum_speed_car, maximum_speed_car),
-                         'surface': pygame.transform.scale(w_right, (303, 599)),
+                         'surface': pygame.transform.scale(w_right, (203, 599)),
                           }
             opponent.append(right_side)
 
