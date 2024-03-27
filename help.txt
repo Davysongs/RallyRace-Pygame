@@ -1,0 +1,38 @@
+1. Starting the Game:
+   - When you run the game, you'll see a "Press any key to start the game" message. Simply press any key on your keyboard to begin.
+
+2. Game Objective:
+   - The objective of the game is to maneuver your car through traffic for as long as possible without crashing into other cars.
+
+3. Controls:
+   - You can control your car using the arrow keys or the "WASD" keys on your keyboard:
+     - Use the left arrow key or "A" key to move left.
+     - Use the right arrow key or "D" key to move right.
+     - Use the up arrow key or "W" key to move up.
+     - Use the down arrow key or "S" key to move down.
+   - Additionally, you can use the "Z" key to activate a reverse mode and the "X" key to slow down.
+
+4. Gameplay:
+   - Once the game starts, your car will appear in the middle of the screen at the bottom.
+   - Other cars (opponents) will start appearing from the top of the screen and move downwards.
+   - Your goal is to dodge these cars by moving your car left, right, up, or down to avoid collisions.
+   - As you progress, the speed of the cars will increase, making it more challenging to avoid collisions.
+
+5. Scoring System:
+   - You earn points as you continue driving without crashing into other cars.
+   - Your current score is displayed at the top-left corner of the screen.
+   - There's also a top score displayed, which represents the highest score achieved in previous games.
+
+6. Game Over:
+   - The game continues until you crash into another car.
+   - When a collision occurs, the game ends, and a "Game Over" message is displayed.
+   - You'll have the option to try again by pressing any key.
+
+7. Additional Features:
+   - There are some additional features in the game, such as a countdown timer at the beginning of each round and the ability to activate a reverse mode or slow down temporarily using specific keys.
+
+8. Highest Score:
+   - The game keeps track of your highest score across multiple playthroughs.
+   - Your highest score is displayed alongside your current score during gameplay.
+
+Overall, the game offers a simple yet challenging experience where players must navigate their car through traffic, avoid collisions, and aim for a high score. It's easy to pick up and play, making it suitable for players of all skill levels.
