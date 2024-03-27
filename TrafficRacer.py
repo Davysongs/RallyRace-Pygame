@@ -193,9 +193,25 @@ while (counting_seconds > 0):
         screen_display_window.fill(bckg_c)
 
         # Draw the score and top score.
-        txt_objects('Score: %s' % (score), font, screen_display_window, 80, 0)
-        txt_objects('High score: %s' % (highest_score), font, screen_display_window, 220, 0)
-        txt_objects('LIFE: %s' % (counting_seconds), font, screen_display_window, 428, 0)
+        def txt_objects(text, font, color, bg_color, x, y):
+            # Render the text onto a surface with the specified font and color
+            text_surface = font.render(text, True, color)
+            text_rect = text_surface.get_rect()
+            text_rect.topleft = (x, y)
+            
+            # Create a surface for the background color and blit it behind the text
+            bg_surface = pygame.Surface((text_rect.width, text_rect.height))
+            bg_surface.fill(bg_color)
+            screen_display_window.blit(bg_surface, text_rect)
+
+            # Blit the text onto the main display surface
+            screen_display_window.blit(text_surface, text_rect)
+
+        # Example usage:
+        txt_objects('Score: %s' % (score), font, txt_c, bckg_c, 80, 0)
+        txt_objects('High score: %s' % (highest_score), font, txt_c, bckg_c, 220, 0)
+        txt_objects('LIFE: %s' % (counting_seconds), font, txt_c, bckg_c, 428, 0)
+
 
         screen_display_window.blit(player_car_photo, gamer_Rect)
 
